@@ -60,12 +60,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\BoatController.cs" />
-    <Compile Include="Assets\BoatEngine.cs" />
-    <Compile Include="Assets\BoatPhysics.cs" />
-    <Compile Include="Assets\EndlessWaterSquare.cs" />
-    <Compile Include="Assets\ModifyBoatMesh.cs" />
-    <Compile Include="Assets\PlayerController.cs" />
+    <Compile Include="Assets\debug.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\MenuSceneLoader.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\SceneAndURLLoader.cs" />
@@ -74,14 +69,23 @@
     <Compile Include="Assets\SampleScenes\Scripts\ParticleSceneControls.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
+    <Compile Include="Assets\Scripts\BoatController.cs" />
+    <Compile Include="Assets\Scripts\BoatEngine.cs" />
+    <Compile Include="Assets\Scripts\BoatPhysics.cs" />
+    <Compile Include="Assets\Scripts\BoatPhysicsMath.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Scripts\DebugPhysics.cs" />
+    <Compile Include="Assets\Scripts\EndlessWaterSquare.cs" />
+    <Compile Include="Assets\Scripts\ModifyBoatMesh.cs" />
+    <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\SimpleCameraController.cs" />
-    <Compile Include="Assets\TriangleData.cs" />
+    <Compile Include="Assets\Scripts\SlammingForceData.cs" />
+    <Compile Include="Assets\Scripts\TriangleData.cs" />
+    <Compile Include="Assets\Scripts\WaterController.cs" />
+    <Compile Include="Assets\Scripts\WaterSquare.cs" />
+    <Compile Include="Assets\Scripts\WaveGen.cs" />
+    <Compile Include="Assets\Scripts\WaveTypes.cs" />
     <Compile Include="Assets\Tutorial_Info\Scripts\Readme.cs" />
-    <Compile Include="Assets\WaterController.cs" />
-    <Compile Include="Assets\WaterSquare.cs" />
-    <Compile Include="Assets\WaveGen.cs" />
-    <Compile Include="Assets\WaveTypes.cs" />
     <None Include="Assets\SampleScenes\Shaders\Skybox-Procedural.shader" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/Shane/OneDrive - University of North Carolina at Chapel Hill/COMP 585/Boat-Docking/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
