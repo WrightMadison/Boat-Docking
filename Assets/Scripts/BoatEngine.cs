@@ -23,6 +23,10 @@ public class BoatEngine : MonoBehaviour
 
     BoatController boatController;
 
+    public Transform cubeTransform;
+
+    public Transform rotorTransform;
+
     void Start()
     {
         boatRB = GetComponent<Rigidbody>();
@@ -43,12 +47,27 @@ public class BoatEngine : MonoBehaviour
 
     void UserInput()
     {
+        if (Input.GetButton("A_Button"))
+        {
+            Debug.Log("AAAAAAAAAAAA");
+        }
+        if(Input.GetKey(KeyCode.B))
+        {
+            Debug.Log("BBBBBBBBBBBBB");
+        }
         //Forward / reverse
         if (Input.GetKey(KeyCode.W))
         {
             if (boatController.CurrentSpeed < 50f && currentJetPower < maxPower)
             {
                 currentJetPower += 1f * powerFactor;
+                Debug.Log("forward is " + cubeTransform.forward);
+                //forward vector points out of left of rotor
+                Vector3 tempForward = new Vector3(cubeTransform.forward.x, cubeTransform.forward.y, cubeTransform.forward.z);
+                //tempTransform.SetPositionAndRotation(cubeTransform.position, cubeTransform.rotation);
+                //tempTransform.Rotate(new Vector3(0, -90, 0));
+                //boatRB.AddForceAtPosition(tempTransform.forward * 1000000.0f, rotorTransform.position, ForceMode.Impulse);
+                boatRB.AddForce(Quaternion.Euler(0, -90, 0)*tempForward * -1000000.0f);
             }
         }
         else
