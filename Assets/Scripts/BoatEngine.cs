@@ -66,8 +66,8 @@ public class BoatEngine : MonoBehaviour
                 Vector3 tempForward = new Vector3(cubeTransform.forward.x, cubeTransform.forward.y, cubeTransform.forward.z);
                 //tempTransform.SetPositionAndRotation(cubeTransform.position, cubeTransform.rotation);
                 //tempTransform.Rotate(new Vector3(0, -90, 0));
-                //boatRB.AddForceAtPosition(tempTransform.forward * 1000000.0f, rotorTransform.position, ForceMode.Impulse);
-                boatRB.AddForce(Quaternion.Euler(0, -90, 0)*tempForward * -1000000.0f);
+                boatRB.AddForceAtPosition(Quaternion.Euler(0, -90, 0) * tempForward * -currentJetPower, rotorTransform.position, ForceMode.Force);
+                //boatRB.AddForce(Quaternion.Euler(0, -90, 0)*tempForward * -1000000.0f);
             }
         }
         else

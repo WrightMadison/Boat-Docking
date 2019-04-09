@@ -602,7 +602,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 394938780}
   serializedVersion: 2
-  m_Mass: 7000
+  m_Mass: 25000
   m_Drag: 1
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -748,8 +748,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waterJetTransform: {fileID: 54282852}
-  powerFactor: 10
-  maxPower: 1000
+  powerFactor: 1500
+  maxPower: 10000000
   currentJetPower: 0
   cubeTransform: {fileID: 1833933210}
   rotorTransform: {fileID: 54282852}
@@ -1980,7 +1980,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!81 &1307900217
 AudioListener:
   m_ObjectHideFlags: 0
