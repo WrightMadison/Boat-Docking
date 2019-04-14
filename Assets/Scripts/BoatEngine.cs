@@ -74,9 +74,8 @@ public class BoatEngine : MonoBehaviour
         {
             currentJetPower = 0f;
         }
-        Debug.Log(Input.GetAxisRaw("Horizontal"));
         //Steer left
-        if (Input.GetAxisRaw("Horizontal") < 0)
+        if (Input.GetButton("Left"))
         {
             WaterJetRotation_Y = waterJetTransform.localEulerAngles.y + 2f;
 
@@ -90,7 +89,7 @@ public class BoatEngine : MonoBehaviour
             waterJetTransform.localEulerAngles = newRotation;
         }
         //Steer right
-        else if (Input.GetAxis("Horizontal") > 0)
+        else if (Input.GetButton("Right"))
         {
             WaterJetRotation_Y = waterJetTransform.localEulerAngles.y - 2f;
 
