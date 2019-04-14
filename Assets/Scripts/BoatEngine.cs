@@ -56,7 +56,7 @@ public class BoatEngine : MonoBehaviour
             Debug.Log("BBBBBBBBBBBBB");
         }
         //Forward / reverse
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetButton("C_Up"))
         {
             if (boatController.CurrentSpeed < 50f && currentJetPower < maxPower)
             {
@@ -74,9 +74,9 @@ public class BoatEngine : MonoBehaviour
         {
             currentJetPower = 0f;
         }
-
+        Debug.Log(Input.GetAxisRaw("Horizontal"));
         //Steer left
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetAxisRaw("Horizontal") < 0)
         {
             WaterJetRotation_Y = waterJetTransform.localEulerAngles.y + 2f;
 
@@ -90,7 +90,7 @@ public class BoatEngine : MonoBehaviour
             waterJetTransform.localEulerAngles = newRotation;
         }
         //Steer right
-        else if (Input.GetKey(KeyCode.D))
+        else if (Input.GetAxis("Horizontal") > 0)
         {
             WaterJetRotation_Y = waterJetTransform.localEulerAngles.y - 2f;
 
