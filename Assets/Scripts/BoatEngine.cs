@@ -55,6 +55,14 @@ public class BoatEngine : MonoBehaviour
         {
             Debug.Log("BBBBBBBBBBBBB");
         }
+        string[] joysticks = Input.GetJoystickNames();
+        for (int i = 0; i < joysticks.Length; i++) {
+            Debug.Log("joystick " + joysticks[i]);
+        }
+
+        Debug.Log("vert" + Input.GetAxis("Joy_Vertical"));
+        Debug.Log("hor" + Input.GetAxis("Horizontal"));
+
         //Forward / reverse
         if (Input.GetButton("C_Up"))
         {
@@ -78,10 +86,11 @@ public class BoatEngine : MonoBehaviour
         if (Input.GetButton("Left"))
         {
             WaterJetRotation_Y = waterJetTransform.localEulerAngles.y + 2f;
-
-            if (WaterJetRotation_Y > 30f && WaterJetRotation_Y < 270f)
+            Debug.Log("angles " + WaterJetRotation_Y);
+            //waterJetTransform.loca
+            if (WaterJetRotation_Y > 120f)
             {
-                WaterJetRotation_Y = 30f;
+                WaterJetRotation_Y = 120f;
             }
 
             Vector3 newRotation = new Vector3(0f, WaterJetRotation_Y, 0f);
@@ -93,9 +102,9 @@ public class BoatEngine : MonoBehaviour
         {
             WaterJetRotation_Y = waterJetTransform.localEulerAngles.y - 2f;
 
-            if (WaterJetRotation_Y < 330f && WaterJetRotation_Y > 90f)
+            if (WaterJetRotation_Y < 60f)
             {
-                WaterJetRotation_Y = 330f;
+                WaterJetRotation_Y = 60f;
             }
 
             Vector3 newRotation = new Vector3(0f, WaterJetRotation_Y, 0f);

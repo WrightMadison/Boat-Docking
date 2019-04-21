@@ -8,6 +8,8 @@ ModelImporter:
     400000: //RootNode
     400002: default
     2100000: defaultMat
+    2100002: wire_000000000.001
+    2100004: wire_028028177.001
     2300000: default
     3300000: default
     4300000: default
