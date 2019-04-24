@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -301,6 +301,7 @@ GameObject:
   - component: {fileID: 90887251}
   - component: {fileID: 90887253}
   - component: {fileID: 90887252}
+  - component: {fileID: 90887254}
   m_Layer: 5
   m_Name: Scoreboard
   m_TagString: Untagged
@@ -369,6 +370,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 90887250}
   m_CullTransparentMesh: 0
+--- !u!114 &90887254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90887250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f7a2713428d1824ca561e930b64a471, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &144562082
 GameObject:
   m_ObjectHideFlags: 0
@@ -852,7 +865,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 207059044}
   m_Mesh: {fileID: 4300000, guid: 34a430bfe68386b42b821d6b7a3a9e09, type: 3}
---- !u!114 &207059055
+--- !u!114 &207059054
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -861,10 +874,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 207059044}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f7a2713428d1824ca561e930b64a471, type: 3}
+  m_Script: {fileID: 11500000, guid: 5f18b90efecd64549b970fd9e0d4c457, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 0
 --- !u!1 &235970015 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: c0c688eb3384f084bbd9cd2c96e696f3,
@@ -1692,7 +1704,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &534669903
 AudioListener:
   m_ObjectHideFlags: 0
@@ -2456,7 +2468,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!81 &1307900217
 AudioListener:
   m_ObjectHideFlags: 0
