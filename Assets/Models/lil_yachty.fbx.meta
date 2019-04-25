@@ -23,6 +23,7 @@ ModelImporter:
     100034: node_id8
     100036: node_id81
     100038: node_id91
+    100040: node_id60
     400000: //RootNode
     400002: node_id10
     400004: node_id105
@@ -43,6 +44,7 @@ ModelImporter:
     400034: node_id8
     400036: node_id81
     400038: node_id91
+    400040: node_id60
     2100000: Material_40
     2100002: Material_41
     2100004: Material_42
@@ -57,6 +59,11 @@ ModelImporter:
     2100022: Material_51
     2100024: Material_52
     2100026: Material_126
+    2100028: Material_53
+    2100030: Material_54
+    2100032: Material_55
+    2100034: Material_56
+    2100036: Material_86
     2300000: node_id10
     2300002: node_id105
     2300004: node_id12
@@ -71,6 +78,7 @@ ModelImporter:
     2300022: node_id4
     2300024: node_id6
     2300026: node_id8
+    2300028: node_id60
     3300000: node_id10
     3300002: node_id105
     3300004: node_id12
@@ -85,6 +93,7 @@ ModelImporter:
     3300022: node_id4
     3300024: node_id6
     3300026: node_id8
+    3300028: node_id60
     4300000: node_id4
     4300002: node_id6
     4300004: node_id8
@@ -99,6 +108,7 @@ ModelImporter:
     4300022: node_id26
     4300024: node_id28
     4300026: node_id105
+    4300028: node_id60
   externalObjects: {}
   materials:
     importMaterials: 1
