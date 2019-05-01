@@ -52,7 +52,7 @@ public class LeftThrottle : MonoBehaviour
 
 
 
-        if (xangle <= 270.8f && xiterations > 1 && pulldown)
+        if (xangle <= 273.8f && xiterations > 1 && pulldown)
         {
             Leftmaxlock = true;
         }

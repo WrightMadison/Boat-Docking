@@ -109,6 +109,8 @@
     <Compile Include="Assets\Scripts\WaveGen.cs" />
     <Compile Include="Assets\Scripts\WaveTypes.cs" />
     <Compile Include="Assets\setRotorRotation.cs" />
+    <Compile Include="Assets\SteeringWheelScript.cs" />
+    <Compile Include="Assets\SteeringWheelSphere.cs" />
     <Compile Include="Assets\Tutorial_Info\Scripts\Readme.cs" />
     <None Include="Assets\Fonts\Jupiter\LICENSE.txt" />
     <None Include="Assets\Textures and Sprites\SF UI\Background\LICENSE.txt" />
