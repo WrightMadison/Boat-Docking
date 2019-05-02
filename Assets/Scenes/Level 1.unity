@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -915,7 +915,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 1.7e-44, y: 0, z: 1.53e-43, w: 0.05078125}
+  m_BoundingSphereOverride: {x: 0, y: -985324540, z: 6.47e-43, w: 1.5e-43}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -1009,9 +1009,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 207059044}
   serializedVersion: 2
-  m_Mass: 15000
+  m_Mass: 60000
   m_Drag: 1
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0.5
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -1101,7 +1101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waterJetTransform: {fileID: 490269125}
   powerFactor: 1000
-  maxPower: 10000000
+  maxPower: 400000
   currentJetPower: 0
   cubeTransform: {fileID: 1476094666}
   rotorTransform: {fileID: 490269125}
@@ -1119,7 +1119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waterJetTransform: {fileID: 1328810366}
   powerFactor: 1000
-  maxPower: 10000000
+  maxPower: 400000
   currentJetPower: 0
   cubeTransform: {fileID: 1400065560}
   rotorTransform: {fileID: 1328810366}
@@ -3781,7 +3781,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1307900216}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -19.99, y: 4.66, z: -2.05}
+  m_LocalPosition: {x: -19.99, y: 12.77, z: -49.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

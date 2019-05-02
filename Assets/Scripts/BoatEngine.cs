@@ -63,7 +63,7 @@ public class BoatEngine : MonoBehaviour
         Debug.Log("vert" + Input.GetAxis("Joy_Vertical"));
         Debug.Log("hor" + Input.GetAxis("Horizontal"));
 
-        //Forward / reverse
+        //Forward
         if (Input.GetButton("C_Up"))
         {
             if (boatController.CurrentSpeed < 50f && currentJetPower < maxPower)
@@ -72,25 +72,31 @@ public class BoatEngine : MonoBehaviour
                 Debug.Log("forward is " + cubeTransform.forward);
                 //forward vector points out of left of rotor
                 Vector3 tempForward = new Vector3(cubeTransform.forward.x, cubeTransform.forward.y, cubeTransform.forward.z);
-                //tempTransform.SetPositionAndRotation(cubeTransform.position, cubeTransform.rotation);
-                //tempTransform.Rotate(new Vector3(0, -90, 0));
                 boatRB.AddForceAtPosition(Quaternion.Euler(0, -90, 0) * tempForward * -currentJetPower, rotorTransform.position, ForceMode.Force);
-                //boatRB.AddForce(Quaternion.Euler(0, -90, 0)*tempForward * -1000000.0f);
             }
         }
-        else
+        else if (Input.GetButton("C_Down")) //Reverse
+        {
+            if (boatController.CurrentSpeed < 50f && currentJetPower < maxPower)
+            {
+                currentJetPower -= 1f * powerFactor;
+                Vector3 tempForward = new Vector3(cubeTransform.forward.x, cubeTransform.forward.y, cubeTransform.forward.z);
+                boatRB.AddForceAtPosition(Quaternion.Euler(0, -90, 0) * tempForward * -currentJetPower, rotorTransform.position, ForceMode.Force);
+            }
+        } else
         {
             currentJetPower = 0f;
-        }
+        }        
+
         //Steer left
         if (Input.GetButton("Left"))
         {
             WaterJetRotation_Y = waterJetTransform.localEulerAngles.y + 2f;
             Debug.Log("angles " + WaterJetRotation_Y);
             //waterJetTransform.loca
-            if (WaterJetRotation_Y > 120f)
+            if (WaterJetRotation_Y > 105f)
             {
-                WaterJetRotation_Y = 120f;
+                WaterJetRotation_Y = 105f;
             }
 
             Vector3 newRotation = new Vector3(0f, WaterJetRotation_Y, 0f);
@@ -102,9 +108,9 @@ public class BoatEngine : MonoBehaviour
         {
             WaterJetRotation_Y = waterJetTransform.localEulerAngles.y - 2f;
 
-            if (WaterJetRotation_Y < 60f)
+            if (WaterJetRotation_Y < 75f)
             {
-                WaterJetRotation_Y = 60f;
+                WaterJetRotation_Y = 75f;
             }
 
             Vector3 newRotation = new Vector3(0f, WaterJetRotation_Y, 0f);
