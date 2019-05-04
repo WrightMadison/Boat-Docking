@@ -8,7 +8,8 @@ public class BoatCollider : MonoBehaviour
 
 //	Text t;
 	public static int scoreValue = 0;
-	Text score;
+	//public int scoreValue = 0;
+	public Text score;
 	
 	void Start(){
 		score = GetComponent<Text>();
@@ -21,7 +22,7 @@ public class BoatCollider : MonoBehaviour
     {
 
 	//t = canvas.GetComponent<Text>();
-			Debug.Log(col.gameObject.name);
+			//Debug.Log(col.gameObject.name);
         if(col.gameObject.name != "Seawall")
         {
 			BoatCollider.scoreValue++;
