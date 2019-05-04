@@ -7,6 +7,7 @@ public class CameraController : MonoBehaviour {
     public GameObject player;
     private Vector3 offset;
     private Vector3 rotateValue;
+    private float rotationValue = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -17,18 +18,28 @@ public class CameraController : MonoBehaviour {
     // Update is called once per frame
     void LateUpdate()
     {
-        transform.position = player.transform.position + offset;
 
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetButton("LB"))
         {
-            transform.RotateAround(player.transform.position, Vector3.up, -50 * Time.deltaTime);
-            offset = transform.position - player.transform.position;
+            rotationValue -= 5f;
+
+            // Rotate the camera by converting the angles into a quaternion.
+            Quaternion target = Quaternion.Euler(10f, rotationValue, transform.rotation.z);
+
+            // Dampen towards the target rotation
+            transform.rotation = Quaternion.Slerp(transform.rotation, target, 1f);
         }
 
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetButton("RB"))
         {
-            transform.RotateAround(player.transform.position, Vector3.up, 50 * Time.deltaTime);
-            offset = transform.position - player.transform.position;
+            rotationValue += 5f;
+
+            // Rotate the camera by converting the angles into a quaternion.
+            Quaternion target = Quaternion.Euler(10f, rotationValue, transform.rotation.z);
+
+            // Dampen towards the target rotation
+            transform.rotation = Quaternion.Slerp(transform.rotation, target, 1f);
         }
+
     }
 }

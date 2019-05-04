@@ -23,7 +23,7 @@ public class BoatEngine : MonoBehaviour
 
     BoatController boatController;
 
-    public Transform cubeTransform;
+    public Transform cubeTransform; //This is the transform of the engine.
 
     public Transform rotorTransform;
 
@@ -47,14 +47,6 @@ public class BoatEngine : MonoBehaviour
 
     void UserInput()
     {
-        if (Input.GetButton("A_Button"))
-        {
-            Debug.Log("AAAAAAAAAAAA");
-        }
-        if(Input.GetKey(KeyCode.B))
-        {
-            Debug.Log("BBBBBBBBBBBBB");
-        }
         string[] joysticks = Input.GetJoystickNames();
         for (int i = 0; i < joysticks.Length; i++) {
             Debug.Log("joystick " + joysticks[i]);
