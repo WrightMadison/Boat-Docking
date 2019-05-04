@@ -22,23 +22,16 @@ public class RightTrans : MonoBehaviour
     {
 
         xangle = Cube.transform.eulerAngles.x;
-        if (Input.GetKeyDown("l") && rightmaxlock == false)
+        if (Input.GetButton("C_Left") && rightmaxlock == false)
         {
-
-
             Cube.transform.Rotate(90.0f, 0.0f, 0.0f, Space.Self);
-
-
             //  xangle += 90.0f;
-
         }
 
-        if (Input.GetKeyDown("o") && leftmaxlock == false)
+        if (Input.GetButton("C_Right") && leftmaxlock == false)
         {
-
             Cube.transform.Rotate(-90.0f, 0.0f, 0.0f, Space.Self);
             //xangle -= 90.0f;
-
         }
         xangle = Cube.transform.localEulerAngles.x;
         if (xangle == 90.0f)

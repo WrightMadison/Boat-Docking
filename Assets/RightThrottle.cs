@@ -7,11 +7,12 @@ public class RightThrottle : MonoBehaviour
 {
     Boolean Rightmaxlock;
     Boolean Leftmaxlock;
-    float rotatespeed = 45f;
+    float rotatespeed = 22.55f;
     public float xangle;
     public int xiterations;
     Boolean pulldown;
     Boolean pullup;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,11 +23,13 @@ public class RightThrottle : MonoBehaviour
     void Update()
     {
         // xangle = transform.eulerAngles.x;
-        if (Input.GetKey(KeyCode.UpArrow) && Rightmaxlock == false)
+        if (Input.GetButton("C_Down") && Rightmaxlock == false)
+        {
             transform.Rotate(rotatespeed * Time.deltaTime, 0.0f, 0.0f, Space.Self);
+            Debug.Log(transform.rotation.x);
+        }
 
-
-        if (Input.GetKey(KeyCode.DownArrow) && Leftmaxlock == false)
+        if (Input.GetButton("C_Up") && Leftmaxlock == false)
         {
             transform.Rotate(-rotatespeed * Time.deltaTime, 0.0f, 0.0f, Space.Self);
         }

@@ -52,18 +52,6 @@ namespace SimpleInputNamespace
 
         private void OnUpdate()
         {
-            // If the wheel is released, reset the rotation
-            // to initial (zero) rotation by wheelReleasedSpeed degrees per second
-            if (!wheelBeingHeld && wheelAngle != 0f)
-            {
-                float deltaAngle = wheelReleasedSpeed * Time.deltaTime;
-                if (Mathf.Abs(deltaAngle) > Mathf.Abs(wheelAngle))
-                    wheelAngle = 0f;
-                else if (wheelAngle > 0f)
-                    wheelAngle -= deltaAngle;
-                else
-                    wheelAngle += deltaAngle;
-            }
 
             /*if(Input.GetKey("i"))
             {
@@ -87,24 +75,24 @@ namespace SimpleInputNamespace
 
             }
             */
-            if (Input.GetKey("i"))
+            if (Input.GetKey("j"))
             {
                 wheelAngle += 5.0f;
                 wheelBeingHeld = true;
                 holdingI = true;
             }
-            else if (!Input.GetKey("i") && holdingI)
+            else if (!Input.GetKey("j") && holdingI)
             {
                 wheelBeingHeld = false;
                 holdingI = false;
             }
-            else if (Input.GetKey("k"))
+            else if (Input.GetKey("d"))
             {
                 wheelAngle -= 5.0f;
                 wheelBeingHeld = true;
                 holdingK = true;
             }
-            else if (!Input.GetKey("k") && holdingK)
+            else if (!Input.GetKey("d") && holdingK)
             {
                 wheelBeingHeld = false;
                 holdingI = false;

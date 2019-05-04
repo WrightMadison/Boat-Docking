@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -858,7 +858,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 9.701331e+24, y: 0, z: 0, w: 6.686857e+31}
+  m_BoundingSphereOverride: {x: 2.3509887e-38, y: 0, z: 0, w: 2.3509887e-38}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -906,6 +906,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa7dc1f0eb148fa42b84cf0f46f3258f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &207059047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207059044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0504d6c44a84909479aff58f92026b1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waterJetTransform: {fileID: 1328810366}
+  powerFactor: 1250
+  maxPower: 150000
+  currentJetPower: 0
+  cubeTransform: {fileID: 1400065560}
+  rotorTransform: {fileID: 1328810366}
 --- !u!114 &207059048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1039,33 +1057,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 207059044}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a573978702fe0b24d993896b151fa6cd, type: 3}
+  m_Script: {fileID: 11500000, guid: 03fdf38d96b978642bbfe03a35d51efa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   waterJetTransform: {fileID: 490269125}
-  powerFactor: 1000
-  maxPower: 400000
+  powerFactor: 1250
+  maxPower: 150000
   currentJetPower: 0
   cubeTransform: {fileID: 1476094666}
   rotorTransform: {fileID: 490269125}
---- !u!114 &207059056
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 207059044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a573978702fe0b24d993896b151fa6cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waterJetTransform: {fileID: 1328810366}
-  powerFactor: 1000
-  maxPower: 400000
-  currentJetPower: 0
-  cubeTransform: {fileID: 1400065560}
-  rotorTransform: {fileID: 1328810366}
 --- !u!1 &239834363
 GameObject:
   m_ObjectHideFlags: 0

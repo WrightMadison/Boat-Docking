@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraController : MonoBehaviour {
+public class CameraController : MonoBehaviour
+{
 
     public GameObject player;
     private Vector3 offset;
@@ -27,7 +28,7 @@ public class CameraController : MonoBehaviour {
             Quaternion target = Quaternion.Euler(10f, rotationValue, transform.rotation.z);
 
             // Dampen towards the target rotation
-            transform.rotation = Quaternion.Slerp(transform.rotation, target, 1f);
+            transform.rotation = Quaternion.Slerp(transform.rotation, target, 15f * Time.deltaTime);
         }
 
         if (Input.GetButton("RB"))
@@ -38,7 +39,7 @@ public class CameraController : MonoBehaviour {
             Quaternion target = Quaternion.Euler(10f, rotationValue, transform.rotation.z);
 
             // Dampen towards the target rotation
-            transform.rotation = Quaternion.Slerp(transform.rotation, target, 1f);
+            transform.rotation = Quaternion.Slerp(transform.rotation, target, 15f * Time.deltaTime);
         }
 
     }
