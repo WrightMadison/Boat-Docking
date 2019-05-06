@@ -12,10 +12,14 @@ public class LeftThrottle : MonoBehaviour
     public int xiterations;
     Boolean pulldown;
     Boolean pullup;
+    GameObject lefttrans;
+    LeftTrans pscript;
 
     // Start is called before the first frame update
     void Start()
     {
+        lefttrans = GameObject.Find("LeftTransmission");
+         pscript = lefttrans.GetComponent<LeftTrans>();
         xiterations = 1;
     }
 
@@ -72,5 +76,7 @@ public class LeftThrottle : MonoBehaviour
             Rightmaxlock = false;
         }
         xiterations++;
+        Debug.Log("LeftTrans neutral is" + pscript.neutral);
+        
     }
 }
