@@ -76,7 +76,7 @@ public class BoatEngineRight : MonoBehaviour
         //Steer left
         if (Input.GetButton("Left"))
         {
-            WaterJetRotation_Y = waterJetTransform.localEulerAngles.y + 2f;
+            WaterJetRotation_Y = waterJetTransform.localEulerAngles.y + 1f;
             //Debug.Log("angles " + WaterJetRotation_Y);
             //waterJetTransform.loca
             if (WaterJetRotation_Y > 105f)
@@ -91,7 +91,7 @@ public class BoatEngineRight : MonoBehaviour
         //Steer right
         else if (Input.GetButton("Right"))
         {
-            WaterJetRotation_Y = waterJetTransform.localEulerAngles.y - 2f;
+            WaterJetRotation_Y = waterJetTransform.localEulerAngles.y - 1f;
 
             if (WaterJetRotation_Y < 75f)
             {
@@ -106,7 +106,7 @@ public class BoatEngineRight : MonoBehaviour
         //Steer left with joysticks
         if (Input.GetAxis("Horizontal") < 0)
         {
-            WaterJetRotation_Y = waterJetTransform.localEulerAngles.y + 2f;
+            WaterJetRotation_Y = waterJetTransform.localEulerAngles.y + 1f;
             Debug.Log("angles " + WaterJetRotation_Y);
             //waterJetTransform.loca
             if (WaterJetRotation_Y > 105f)
@@ -122,7 +122,7 @@ public class BoatEngineRight : MonoBehaviour
         //Steer right with joysticks
         else if (Input.GetAxis("Horizontal") > 0)
         {
-            WaterJetRotation_Y = waterJetTransform.localEulerAngles.y - 2f;
+            WaterJetRotation_Y = waterJetTransform.localEulerAngles.y - 1f;
 
             if (WaterJetRotation_Y < 75f)
             {

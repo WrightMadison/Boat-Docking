@@ -7,12 +7,11 @@ public class LeftThrottle : MonoBehaviour
 {
     Boolean Rightmaxlock;
     Boolean Leftmaxlock;
-    float rotatespeed = 22.55f;
+    float rotatespeed = 50f;
     public float xangle;
     public int xiterations;
     Boolean pulldown;
     Boolean pullup;
-    GameObject boat;
 
     // Start is called before the first frame update
     void Start()

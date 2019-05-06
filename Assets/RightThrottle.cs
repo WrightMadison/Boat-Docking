@@ -7,7 +7,7 @@ public class RightThrottle : MonoBehaviour
 {
     Boolean Rightmaxlock;
     Boolean Leftmaxlock;
-    float rotatespeed = 22.55f;
+    float rotatespeed = 50f;
     public float xangle;
     public int xiterations;
     Boolean pulldown;
@@ -26,7 +26,6 @@ public class RightThrottle : MonoBehaviour
         if (Input.GetButton("C_Down") && Rightmaxlock == false)
         {
             transform.Rotate(rotatespeed * Time.deltaTime, 0.0f, 0.0f, Space.Self);
-            Debug.Log(transform.rotation.x);
         }
 
         if (Input.GetButton("C_Up") && Leftmaxlock == false)

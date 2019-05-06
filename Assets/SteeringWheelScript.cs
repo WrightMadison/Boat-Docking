@@ -9,12 +9,10 @@ namespace SimpleInputNamespace
         public SimpleInput.AxisInput axis = new SimpleInput.AxisInput("Horizontal");
 
         private Graphic wheel;
-
         private RectTransform wheelTR;
         private Vector2 centerPoint;
 
-        public float maximumSteeringAngle = 200f;
-        public float wheelReleasedSpeed = 350f;
+        public float maximumSteeringAngle = 15f;
         public float valueMultiplier = 1f;
 
         private float wheelAngle = 0f;
@@ -75,27 +73,18 @@ namespace SimpleInputNamespace
 
             }
             */
+
             if (Input.GetKey("j"))
             {
-                wheelAngle += 5.0f;
+                wheelAngle += 14.2f;
                 wheelBeingHeld = true;
                 holdingI = true;
             }
-            else if (!Input.GetKey("j") && holdingI)
-            {
-                wheelBeingHeld = false;
-                holdingI = false;
-            }
             else if (Input.GetKey("d"))
             {
-                wheelAngle -= 5.0f;
+                wheelAngle -= 14.2f;
                 wheelBeingHeld = true;
                 holdingK = true;
-            }
-            else if (!Input.GetKey("d") && holdingK)
-            {
-                wheelBeingHeld = false;
-                holdingI = false;
             }
             wheelAngle = Mathf.Clamp(wheelAngle, -maximumSteeringAngle, maximumSteeringAngle);
             //wheelPrevAngle = Vector2.Angle(new Vector2(0, 1), new Vector2(-1, 0));

@@ -22,24 +22,24 @@ public class CameraController : MonoBehaviour
 
         if (Input.GetButton("LB"))
         {
-            rotationValue -= 5f;
+            rotationValue -= 2f;
 
             // Rotate the camera by converting the angles into a quaternion.
             Quaternion target = Quaternion.Euler(10f, rotationValue, transform.rotation.z);
 
             // Dampen towards the target rotation
-            transform.rotation = Quaternion.Slerp(transform.rotation, target, 15f * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, target, 40f * Time.deltaTime);
         }
 
         if (Input.GetButton("RB"))
         {
-            rotationValue += 5f;
+            rotationValue += 2f;
 
             // Rotate the camera by converting the angles into a quaternion.
             Quaternion target = Quaternion.Euler(10f, rotationValue, transform.rotation.z);
 
             // Dampen towards the target rotation
-            transform.rotation = Quaternion.Slerp(transform.rotation, target, 15f * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, target, 40f * Time.deltaTime);
         }
 
     }
