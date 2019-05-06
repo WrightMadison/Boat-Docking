@@ -12,7 +12,7 @@ public class LeftTrans : MonoBehaviour
     Boolean rightmaxlock;
     Boolean leftmaxlock;
 
-    public Boolean Upshifted;
+    public Boolean upshifted;
     public Boolean neutral;
     public Boolean downshifted;
 
@@ -28,7 +28,7 @@ public class LeftTrans : MonoBehaviour
     void Update()
     {
         frames++;
-        if(frames % 3!=0)
+        if(frames %5 !=0)
         {
             return;
         }
@@ -38,17 +38,16 @@ public class LeftTrans : MonoBehaviour
             Cube.transform.Rotate(90.0f, 0.0f, 0.0f, Space.Self);
             if(neutral==true)
             {
-                Upshifted = false;
+                upshifted = false;
                 downshifted = true; ;
                 neutral = false;
             }
             else
             {
-                Upshifted = false;
+                upshifted = false;
                 downshifted = false;
                 neutral = true;
             }
-            //  xangle += 90.0f;
         }
 
         if (Input.GetButton("D_Left") && leftmaxlock == false)
@@ -56,17 +55,16 @@ public class LeftTrans : MonoBehaviour
             Cube.transform.Rotate(-90.0f, 0.0f, 0.0f, Space.Self);
             if(neutral==true)
             {
-                Upshifted = true;
+                upshifted = true;
                 neutral = false;
                 downshifted = false;
             }
             else
             {
-                Upshifted = false;
+                upshifted = false;
                 neutral = true;
                 downshifted = false;
             }
-            //xangle -= 90.0f;
         }
         xangle = Cube.transform.localEulerAngles.x;
         if (xangle == 90.0f)
@@ -86,19 +84,5 @@ public class LeftTrans : MonoBehaviour
         {
             leftmaxlock = false;
         }
-        //xangle = Mathf.Clamp(xangle, -maxtransmissionangle, maxtransmissionangle);
-        /*
-        if(xangle==-180)
-        {
-            Cube.transform.localEulerAngles = new Vector3(90.0f, Cube.transform.localEulerAngles.y, Cube.transform.localEulerAngles.z);
-        }
-        if (xangle == -270)
-        {
-            Cube.transform.localEulerAngles = new Vector3(xangle, Cube.transform.localEulerAngles.y, Cube.transform.localEulerAngles.z);
-        }
-        */
-        //Debug.Log("Upshifted is "+Upshifted);
-        //Debug.Log("Neutral is "+ neutral);
-        //.Log("downshifted is "+downshifted);
     }
 }

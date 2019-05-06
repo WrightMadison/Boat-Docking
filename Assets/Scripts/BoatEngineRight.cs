@@ -27,10 +27,15 @@ public class BoatEngineRight : MonoBehaviour
 
     public Transform rotorTransform;
 
+    //this is for transmission states
+    GameObject righttrans;
+    RightTrans pscript;
+
     void Start()
     {
         boatRB = GetComponent<Rigidbody>();
-
+        righttrans = GameObject.Find("RightTransmission");
+        pscript = righttrans.GetComponent<RightTrans>();
         boatController = GetComponent<BoatController>();
     }
 
@@ -42,20 +47,25 @@ public class BoatEngineRight : MonoBehaviour
 
     void FixedUpdate()
     {
-        UpdateWaterJet();
+       UpdateWaterJet();
         Vector3 tempForward = new Vector3(cubeTransform.forward.x, cubeTransform.forward.y, cubeTransform.forward.z);
-        boatRB.AddForceAtPosition(Quaternion.Euler(0, -90, 0) * tempForward * -currentJetPower, rotorTransform.position, ForceMode.Force);
+
+        if (pscript.upshifted && currentJetPower > 0)
+        {
+            boatRB.AddForceAtPosition(Quaternion.Euler(0, -90, 0) * tempForward * -currentJetPower, rotorTransform.position, ForceMode.Force);
+        }
+        else if (pscript.neutral)
+        {
+
+        }
+        else if (pscript.downshifted && currentJetPower < 0)
+        {
+            boatRB.AddForceAtPosition(Quaternion.Euler(0, -90, 0) * tempForward * -currentJetPower, rotorTransform.position, ForceMode.Force);
+        }
     }
 
     void UserInput()
     {
-        string[] joysticks = Input.GetJoystickNames();
-        for (int i = 0; i < joysticks.Length; i++) {
-            //Debug.Log("joystick " + joysticks[i]);
-        }
-
-        //Debug.Log("vert" + Input.GetAxis("Joy_Vertical"));
-        //Debug.Log("hor" + Input.GetAxis("Horizontal"));
 
         //Forward
         if (Input.GetButton("C_Up"))

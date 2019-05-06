@@ -27,10 +27,15 @@ public class BoatEngineLeft : MonoBehaviour
 
     public Transform rotorTransform;
 
+    //this is for transmission states
+    GameObject lefttrans;
+    LeftTrans pscript; 
+
     void Start()
     {
         boatRB = GetComponent<Rigidbody>();
-
+        lefttrans = GameObject.Find("LeftTransmission");
+        pscript = lefttrans.GetComponent<LeftTrans>();
         boatController = GetComponent<BoatController>();
     }
 
@@ -44,7 +49,19 @@ public class BoatEngineLeft : MonoBehaviour
     {
         UpdateWaterJet();
         Vector3 tempForward = new Vector3(cubeTransform.forward.x, cubeTransform.forward.y, cubeTransform.forward.z);
-        boatRB.AddForceAtPosition(Quaternion.Euler(0, -90, 0) * tempForward * -currentJetPower, rotorTransform.position, ForceMode.Force);
+
+        if (pscript.upshifted && currentJetPower > 0)
+        {
+            boatRB.AddForceAtPosition(Quaternion.Euler(0, -90, 0) * tempForward * -currentJetPower, rotorTransform.position, ForceMode.Force);
+        }
+        else if (pscript.neutral)
+        {
+
+        }
+        else if (pscript.downshifted && currentJetPower < 0)
+        {
+            boatRB.AddForceAtPosition(Quaternion.Euler(0, -90, 0) * tempForward * -currentJetPower, rotorTransform.position, ForceMode.Force);
+        }
     }
 
     void UserInput()
@@ -70,15 +87,12 @@ public class BoatEngineLeft : MonoBehaviour
         if (Input.GetButton("Left"))
         {
             WaterJetRotation_Y = waterJetTransform.localEulerAngles.y + 1f;
-            //Debug.Log("angles " + WaterJetRotation_Y);
-            //waterJetTransform.loca
             if (WaterJetRotation_Y > 105f)
             {
                 WaterJetRotation_Y = 105f;
             }
 
             Vector3 newRotation = new Vector3(0f, WaterJetRotation_Y, 0f);
-
             waterJetTransform.localEulerAngles = newRotation;
         }
         //Steer right keyboard
@@ -92,7 +106,6 @@ public class BoatEngineLeft : MonoBehaviour
             }
 
             Vector3 newRotation = new Vector3(0f, WaterJetRotation_Y, 0f);
-
             waterJetTransform.localEulerAngles = newRotation;
         }
 
@@ -100,15 +113,12 @@ public class BoatEngineLeft : MonoBehaviour
         if (Input.GetAxis("Horizontal") < 0)
         {
             WaterJetRotation_Y = waterJetTransform.localEulerAngles.y + 1f;
-            Debug.Log("angles " + WaterJetRotation_Y);
-            //waterJetTransform.loca
             if (WaterJetRotation_Y > 105f)
             {
                 WaterJetRotation_Y = 105f;
             }
 
             Vector3 newRotation = new Vector3(0f, WaterJetRotation_Y, 0f);
-
             waterJetTransform.localEulerAngles = newRotation;
         }
 
@@ -116,25 +126,21 @@ public class BoatEngineLeft : MonoBehaviour
         else if (Input.GetAxis("Horizontal") > 0)
         {
             WaterJetRotation_Y = waterJetTransform.localEulerAngles.y - 1f;
-
             if (WaterJetRotation_Y < 75f)
             {
                 WaterJetRotation_Y = 75f;
             }
 
             Vector3 newRotation = new Vector3(0f, WaterJetRotation_Y, 0f);
-
             waterJetTransform.localEulerAngles = newRotation;
         }
     }
 
     void UpdateWaterJet()
     {
-        //Debug.Log(boatController.CurrentSpeed);
-
         Vector3 forceToAdd = -waterJetTransform.forward * currentJetPower;
 
-        //Only add the force if the engine is below sea level
+        //Only add the force if the engine is below sea level. Currently doesn't work and is always applied.
         float waveYPos = WaterController.current.GetWaveYPos(waterJetTransform.position, Time.time);
 
         if (waterJetTransform.position.y < waveYPos)

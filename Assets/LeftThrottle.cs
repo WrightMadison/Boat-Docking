@@ -12,21 +12,16 @@ public class LeftThrottle : MonoBehaviour
     public int xiterations;
     Boolean pulldown;
     Boolean pullup;
-    GameObject lefttrans;
-    LeftTrans pscript;
 
     // Start is called before the first frame update
     void Start()
     {
-        lefttrans = GameObject.Find("LeftTransmission");
-         pscript = lefttrans.GetComponent<LeftTrans>();
         xiterations = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // xangle = transform.eulerAngles.x;
         if (Input.GetButton("D_Down") && Rightmaxlock == false)
         {
             transform.Rotate(rotatespeed * Time.deltaTime, 0.0f, 0.0f, Space.Self);
@@ -76,7 +71,6 @@ public class LeftThrottle : MonoBehaviour
             Rightmaxlock = false;
         }
         xiterations++;
-        Debug.Log("LeftTrans neutral is" + pscript.neutral);
         
     }
 }

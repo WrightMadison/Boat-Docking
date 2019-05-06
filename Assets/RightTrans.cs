@@ -11,10 +11,10 @@ public class RightTrans : MonoBehaviour
     public float xangle;
     Boolean rightmaxlock;
     Boolean leftmaxlock;
-    public Boolean Upshifted;
-    public Boolean Downshifted;
-    public Boolean neutral;
 
+    public Boolean upshifted;
+    public Boolean downshifted;
+    public Boolean neutral;
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +28,7 @@ public class RightTrans : MonoBehaviour
     void Update()
     {
         frames++;
-        if(frames%3!=0)
+        if(frames %5 !=0)
         {
             return;
         }
@@ -36,17 +36,16 @@ public class RightTrans : MonoBehaviour
         if (Input.GetButton("C_Left") && rightmaxlock == false)
         {
             Cube.transform.Rotate(90.0f, 0.0f, 0.0f, Space.Self);
-            //  xangle += 90.0f;
             if(neutral==true)
             {
-                Downshifted = true;
-                Upshifted = false;
+                downshifted = true;
+                upshifted = false;
                 neutral = false;
             }
             else
             {
-                Downshifted = false;
-                Upshifted = false;
+                downshifted = false;
+                upshifted = false;
                 neutral = true;
             }
         }
@@ -54,17 +53,16 @@ public class RightTrans : MonoBehaviour
         if (Input.GetButton("C_Right") && leftmaxlock == false)
         {
             Cube.transform.Rotate(-90.0f, 0.0f, 0.0f, Space.Self);
-            //xangle -= 90.0f;
             if(neutral==true)
             {
-                Downshifted = false;
-                Upshifted = true;
+                downshifted = false;
+                upshifted = true;
                 neutral = false;
             }
             else
             {
-                Downshifted = false;
-                Upshifted = false;
+                downshifted = false;
+                upshifted = false;
                 neutral = true;
             }
         }
@@ -86,17 +84,5 @@ public class RightTrans : MonoBehaviour
         {
             leftmaxlock = false;
         }
-        //xangle = Mathf.Clamp(xangle, -maxtransmissionangle, maxtransmissionangle);
-        /*
-        if(xangle==-180)
-        {
-            Cube.transform.localEulerAngles = new Vector3(90.0f, Cube.transform.localEulerAngles.y, Cube.transform.localEulerAngles.z);
-        }
-        if (xangle == -270)
-        {
-            Cube.transform.localEulerAngles = new Vector3(xangle, Cube.transform.localEulerAngles.y, Cube.transform.localEulerAngles.z);
-        }
-        */
-
     }
 }
