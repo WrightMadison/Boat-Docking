@@ -1,29 +1,37 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using Random;
+using UnityEngine;
 
 public class CollisionDetector : MonoBehaviour{
-    // Start is called before the first frame update
-void OnCollisionEnter (Collision col){
+	//this script calculates the value that is given to 
+	//the scoreboard as percieved financial damage to the 
+	//boat when it runs into any non-trigger item aside from
+	//the Seawall game object, an invisible wall that keeps the 
+	//player in bounds.
 
-	//t = canvas.GetComponent<Text>();
-			Debug.Log(col.gameObject.name);
+	//when a collision is detected
+	void OnCollisionEnter (Collision col){
+
+		//checking that the object is not the no-damage Seawall
         if(col.gameObject.name != "Seawall"){
 			
-			if(col.relativeVelocity.magnitude >= 1){
-				BoatCollider.scoreValue = BoatCollider.scoreValue + ((int)Random.Range(10,50)* (int)col.relativeVelocity.magnitude);
+			//varying magnitudes of collision lead to various amounts of 
+			//"damage" added to the scoreboard stored in the BoatCollider
+			//script. Go crazy with the numbers and equations till you find something 
+			//you like. Pick your poison. It's currently a random number
+			//from a set range based on magnitude generally multiplied by that magnitude.
+			if(col.relativeVelocity.magnitude >= 0){//least damage. 
+				BoatCollider.scoreValue = BoatCollider.scoreValue + ((int)Random.Range(100,1000));
+			}else if (col.relativeVelocity.magnitude >= 1){
+				BoatCollider.scoreValue = BoatCollider.scoreValue + ((int)Random.Range(1000,2000)* (int)col.relativeVelocity.magnitude);
 			}else if (col.relativeVelocity.magnitude >= 5){
-				BoatCollider.scoreValue = BoatCollider.scoreValue + ((int)Random.Range(50,100)* (int)col.relativeVelocity.magnitude);
+				BoatCollider.scoreValue = BoatCollider.scoreValue + ((int)Random.Range(2000,10000)* (int)col.relativeVelocity.magnitude);
 			}else if(col.relativeVelocity.magnitude < 5){
-				BoatCollider.scoreValue = BoatCollider.scoreValue + ((int)Random.Range(100,200)* (int)col.relativeVelocity.magnitude);
-			}else{
-				BoatCollider.scoreValue = BoatCollider.scoreValue + ((int)Random.Range(200,500)* (int)col.relativeVelocity.magnitude);
+				BoatCollider.scoreValue = BoatCollider.scoreValue + ((int)Random.Range(10000,20000)* (int)col.relativeVelocity.magnitude);
+			}else{//maximum damage
+				BoatCollider.scoreValue = BoatCollider.scoreValue + ((int)Random.Range(20000,50000)* (int)col.relativeVelocity.magnitude);
 			}
-				
-			//BoatCollider.scoreValue = BoatCollider.scoreValue + (10* (int)col.relativeVelocity.magnitude);
-			//t.text = "Score: " + score;
-			//Destroy(col.gameObject);
 
         }
     }
